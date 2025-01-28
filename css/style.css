@@ -1,0 +1,215 @@
+/* CSS file for greenboxcode.com */
+/*Root Level Style*/
+:root {
+    color: antiquewhite;
+    background-color: black;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 19px;
+    padding-left: 10px;
+ 
+  }
+  td {
+    padding-right: 13px;
+    padding-left: 13px;
+  }
+  cite {
+    color:antiquewhite;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  .navigation {
+    background-image: url('https://kuenai.net/images/chong-wei-oMcTmNHclZI-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    border-radius: 25px;
+    padding: 20px;
+  }
+  .footnote {
+    font-size: small;
+    color: aquamarine;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 20px;
+  }
+  
+/*   button {
+    min-height: 20px;
+    max-height: 25px;
+    min-width: 160px;
+    margin-bottom: 3px;
+    font-size: smaller;
+    font-weight: bold;
+  } */
+  
+  .footnote a {
+    color: aquamarine;
+  }
+  
+  .footnote a:focus-within {
+    color: aqua;
+  }
+  p{
+    padding-left: 20px;
+  }
+  .menu {
+
+    list-style: none;
+    padding-left: 25px;
+  }
+  
+  ul {
+    padding-left: 25px;
+  }
+  
+  section {
+    padding-bottom: 60px;
+    padding-right: 60px;
+  }
+  
+  .vl {
+    border-left: 6px solid gray;
+    height: 300px;
+  }
+  
+  .logo {
+    width: 50%;
+    height: auto;
+  }
+  
+  .med_image {
+    width: 50%;
+    height: auto;
+    
+  }
+  
+  .fixed_foot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: left;
+  }
+  
+  .header {
+    position: sticky;
+    color:rgb(230, 237, 152);
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  [class*="col-"] {
+    float: left;
+  
+    padding: 20px 3px;
+    /* Use Border for testing */
+    /* border: 1px solid rgb(202, 199, 183); */
+  }
+  
+  .col-1 {
+    width: 8.33%;
+  }
+  
+  .col-2 {
+    width: 16.66%;
+  }
+  
+  .col-3 {
+    width: 25%;
+  }
+  
+  .col-4 {
+    width: 33.33%;
+  }
+  
+  .col-5 {
+    width: 41.66%;
+  }
+  
+  .col-6 {
+    width: 50%;
+  }
+  
+  .col-7 {
+    width: 58.33%;
+  }
+  
+  .col-8 {
+    width: 66.66%;
+  }
+  
+  .col-9 {
+    width: 75%;
+  }
+  
+  .col-10 {
+    width: 83.33%;
+  }
+  
+  .col-11 {
+    width: 91.66%;
+  }
+  
+  .col-12 {
+    width: 100%;
+  }
+  
+  
+  @media only screen and (max-width: 1100px) {
+  
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
+
+
+ 
+    button {
+      backface-visibility: hidden;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    background: #020202;
+    border-radius: 100px;
+    border: 0.5px solid rgba(0,0,0,0.2);
+    border-width: 0.5px 0.5px 0.5px 0.5px;
+    padding: 4px 22px 5px 22px;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.6),0px 0px 5px rgba(255,255,255,1),0px 1px 0px 3px rgba(0,0,0,0.2),inset 0px 1px 0px rgba(255,255,255,1);
+      color: #e9d7d4;
+    font-size: 16px;
+    font-family: Helvetica Neue;
+    font-weight: 900;
+    font-style: normal;
+    margin-bottom: 10px;
+    }
+    button > div {
+      color: #999;
+    font-size: 10px;
+    font-family: Helvetica Neue;
+    font-weight: initial;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 10px;
+    }
+    button > i {
+      font-size: 1em;
+    border-radius: 0px;
+    border: 0px solid transparent;
+    border-width: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 8px;
+    margin-bottom: 10px;
+    position: static
+    }
+    button > .ld {
+      font-size: initial
+    }

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta lang="en">
+    <meta name="keywords" content="noaa, space weather, aurora, kp, kp index, aurora borealis, aurora australis, solar wind, solar flare, geomagnetic storm, ionospheric storm, ionospheric solutions, ionsol, kuenai, kuenai app, ionospheric solutions inc">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuenai Space Weather</title>
+    <meta name="description" content="noaa space weather prediction data and synopsis">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="author" content="Iononspheric Solutions Inc.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://kuenai.net">
+</head>
+
+<body>
+    <div class="header">kuenai  by Iononspheric Solutions Inc</div>
+    
+    <!-- <div class="row">
+        <div id="hp" class="col-3">Current Hp(Kp)</div>
+        <div id="scale" class="col-2">Noaa Scale</div>
+        <div id="dst" class="col-2">Kyoto DST</div>
+        <div id="bz" class="col-2">Bz</div>
+        <div id="time" class="col-2">Bz</div>
+    </div> -->
+    <div class="row">
+        <div  class="navigation col-3 menu">
+            <nav>
+                <h3>Quick Reads</h3>
+                <ul class="menu">
+                    <!-- Get User Lat & Long input-->
+
+                    <!--  <form id="geoform" action="data/geo.js" method="post">
+                        <label for="lat">Latitude:</label>
+                        <input type="text" id="lat" name="lat" placeholder="e.g. 50.0522">
+                        <label for="lon">Longitude:</label>
+                        <input type="text" id="lon" name="lon" placeholder="e.g. -111.2437">
+                        <button type="submit">Submit</button>
+                    </form> -->
+                    <li><a href="#sun_moon"><button>Sun & Moon Data</button></a></li>
+                    <li><a href="#noaa_advisory"><button>NOAA Advisory</button></a></li>
+                    <li><a href="#3dayforecast"><button>3 Day Forecast</button></a></li>
+                    <li><a href="#27dayoutlook"><button>27 Day Outlook</button></a></li>
+
+                </ul>
+                <h3>Aurora</h3>
+                <ul class="menu">
+                    <li><a href="#ovation_tonight"><button>Tonight's Aurora Ovation</button></a></li>
+                    <li><a href="#ovation_next"><button>Tommorrow Night's Ovation</button></a></li>
+
+                </ul>
+                <h3>IonSol</h3>
+                <ul class="menu">
+                    <li><a href="https://ionsol.com"><button>About</button></a></li>
+                    <!-- <li><a href="#credits"><button>Credits</button></a></li> -->
+                    <!-- <li><a href="#privacy"><button>Privacy</button></a></li> -->
+                </ul>
+            </nav>
+            <a href="https://unsplash.com/@cncacw">Elk Island Aurora By Chong Wei</a>
+        </div>
+        <div id="sun_moon" class="col-9">
+            <div class="row">
+                <section id="sun_moon">
+                <h3>Sun & Moon Data for Edmonton, AB</h3>
+                <div class="col-4">
+                    Sun
+                    <hr>
+                    <div id="sun"></div>
+                </div>
+                <div class="col-4">
+                    Moon
+                    <hr>
+                    <div id="moon"></div>
+                </div>
+                </section>
+            </div>
+
+
+            <div>
+                <section id="noaa_advisory">
+                    <h3>NOAA SWPC Advisory</h3>
+                    <div id="advisory"></div>
+                    <p><a href="https://services.swpc.noaa.gov/text/advisory-outlook.txt">Original Document: NOAA SWPC
+                        </a></p>
+                    <hr>
+                </section>
+                <section id="3dayforecast">
+                    <h3>3 Day Forecast</h3>
+                    <div id="3dayf"></div>
+                    <p><a href="https://services.swpc.noaa.gov/text/3-day-forecast.txt">Original Document: NOAA SWPC
+                        </a></p>
+                    <hr>
+                </section>
+                <section id="27dayoutlook">
+                    <h3>27 Day Outlook</h3>
+                    <div id="27dayf"></div>
+                    <p><a href="https://services.swpc.noaa.gov/text/27-day-outlook.txt">Original Document: NOAA SWPC
+                        </a></p>
+                    <hr>
+                </section>
+                <section id="ovation_tonight">
+                    <h3>Aurora Tonight</h3>
+                    <div id="tonight"><div id="next"><img src="images/tonight_ovation.png", class="med_image" alt=""></div></div>
+                    <p><a href="https://www.swpc.noaa.gov/communities/aurora-dashboard-experimental">Original Document:
+                            NOAA SWPC
+                        </a></p>
+                    <hr>
+                </section>
+                <section id="ovation_next">
+                    <h3>Aurora Tommorrow Night</h3>
+                    <div id="next"><img src="images/tommorrow_ovation.png", class="med_image" alt=""></div>
+                    <p><a href="https://www.swpc.noaa.gov/communities/aurora-dashboard-experimental">Original Document:
+                            NOAA SWPC
+                        </a></p>
+                    <hr>
+                </section>
+
+
+            </div>
+        </div>
+        <!--End of Second Row-->
+    </div>
+</body>
+
+<script type="text/javascript">
+
+
+    $(document).ready(
+
+        function () {
+            console.log("Document Ready");
+            function reload_page() {
+                location.reload(true);
+                console.log("Page Reloaded");
+                console.log("At: " + new Date());
+            }
+            /* function startTime() {
+                var today = new Date();
+                var h = today.getUTCHours();
+                var m = today.getUTCMinutes();
+                var s = today.getUTCSeconds();
+                if (m < 10) { m = "0" + m };
+                if (s < 10) { s = "0" + s };
+                document.getElementById('time').innerHTML = h + ":" + m + ":" + s + " UTC";
+                setTimeout(startTime, 1000);
+            } */
+            $("#3dayf").load("data/noaa_swpc_3_day_forecast.txt_summary_.html");
+            $("#27dayf").load("data/noaa_swpc_27_day_forecast.txt_summary_.html");
+            $("#advisory").load("data/noaa_swpc_advisory_outlook.txt_summary_.html");
+            $("#sun").load("data/sun_set.html");
+            $("#moon").load("data/moon_set.html");
+            setTimeout(reload_page, 600000);
+            
+        }
+    );
+
+
+</script>
+
+
+
+
+</html>
