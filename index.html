@@ -44,6 +44,7 @@
                         <button type="submit">Submit</button>
                     </form> -->
                     <li><a href="#sun_moon"><button>Sun & Moon Data</button></a></li>
+                    <li><a href="#noaa_discussion"><button>NOAA SWPC Discussion</button></a></li>
                     <li><a href="#noaa_advisory"><button>NOAA Advisory</button></a></li>
                     <li><a href="#3dayforecast"><button>3 Day Forecast</button></a></li>
                     <li><a href="#27dayoutlook"><button>27 Day Outlook</button></a></li>
@@ -83,6 +84,13 @@
 
 
             <div>
+                <section id="noaa_discussion">
+                    <h3>NOAA SWPC Discussion</h3>
+                    <div id="discussion"></div>
+                    <p><a href="https://services.swpc.noaa.gov/text/discussion.txt">Original Document: NOAA SWPC
+                        </a></p>
+                    <hr>
+                </section>
                 <section id="noaa_advisory">
                     <h3>NOAA SWPC Advisory</h3>
                     <div id="advisory"></div>
@@ -153,6 +161,7 @@
             $("#3dayf").load("data/noaa_swpc_3_day_forecast.txt_summary_.html");
             $("#27dayf").load("data/noaa_swpc_27_day_forecast.txt_summary_.html");
             $("#advisory").load("data/noaa_swpc_advisory_outlook.txt_summary_.html");
+            $("#discussion").load("data/noaa_swpc_discussion.txt_summary_.html");   
             $("#sun").load("data/sun_set.html");
             $("#moon").load("data/moon_set.html");
             setTimeout(reload_page, 600000);
